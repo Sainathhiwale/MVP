@@ -24,6 +24,7 @@ public class LoginPresenterImpl implements LoginContract.LoginPresenter,LoginCon
     @Override
     public void validateLoginInFromServer() {
         if (loginView!=null) {
+            loginView.showProgress();
             getLoginInIntractor.getLoginInfoData(this);
         }
     }

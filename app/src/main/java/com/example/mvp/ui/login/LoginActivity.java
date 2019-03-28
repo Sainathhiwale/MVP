@@ -13,6 +13,7 @@ import com.example.mvp.R;
 import com.example.mvp.data.DataManager;
 import com.example.mvp.data.model.User;
 import com.example.mvp.myapp.AppController;
+import com.example.mvp.utils.CommonUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -47,12 +48,12 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
 
     @Override
     public void showProgress() {
-
+        CommonUtils.startProgressBarDialog(this,"Login in.......");
     }
 
     @Override
     public void hideProgress() {
-
+       CommonUtils.stopProgressBarDialog();
     }
 
     @Override

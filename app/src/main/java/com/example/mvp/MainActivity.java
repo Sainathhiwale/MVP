@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.example.mvp.data.DataManager;
 import com.example.mvp.myapp.AppController;
 import com.example.mvp.ui.all_users.UserALLFragment;
+import com.example.mvp.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DataManager dataManager;
@@ -33,6 +34,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        initView();
+    }
+
+    private void initView() {
+        HomeFragment homeFragment = new HomeFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.main_container,homeFragment);
+        fragmentTransaction.commit();
+        fragmentTransaction.addToBackStack(null);
     }
 
     @Override

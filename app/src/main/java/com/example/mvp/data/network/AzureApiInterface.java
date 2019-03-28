@@ -10,6 +10,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface AzureApiInterface {
     @Headers("Content-Type: application/json")
@@ -21,5 +22,5 @@ public interface AzureApiInterface {
 
     //get particular user just enter the user id
     @GET("api/Users/")
-    Call<SingleUsers> getSingleUser(@Path("id") int id);
+    Call<SingleUsers> getSingleUser(@Query("id") int id);
 }

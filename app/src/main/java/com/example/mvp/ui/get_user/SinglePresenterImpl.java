@@ -6,6 +6,9 @@ public class SinglePresenterImpl implements SingleContract.SinglePresenter,Singl
     private  SingleContract.SingleView singleView;
     private SingleContract.GetSingleInIntractor getSingleInIntractor;
 
+    public SinglePresenterImpl() {
+    }
+
     public SinglePresenterImpl(SingleContract.SingleView singleView, SingleContract.GetSingleInIntractor getSingleInIntractor) {
         this.singleView = singleView;
         this.getSingleInIntractor = getSingleInIntractor;
