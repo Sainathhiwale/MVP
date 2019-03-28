@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import com.example.mvp.R;
 
+import butterknife.ButterKnife;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -25,6 +27,7 @@ public class SingleUserFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_get_user, container, false);
+        ButterKnife.bind(this,view);
         return view;
     }
 
