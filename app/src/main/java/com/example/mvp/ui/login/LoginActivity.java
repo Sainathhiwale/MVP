@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
         if (user != null) {
             Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
             dataManager.setUserID(String.valueOf(user.getiD()));
+            dataManager.setUserName(user.getUserName());
             Intent homeIntent = new Intent(this, MainActivity.class);
             startActivity(homeIntent);
 
