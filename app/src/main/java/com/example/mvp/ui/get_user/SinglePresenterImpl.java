@@ -15,9 +15,18 @@ public class SinglePresenterImpl implements SingleContract.SinglePresenter,Singl
     }
 
     @Override
+    public void requestDataForSingleUser() {
+        if (singleView!=null){
+            singleView.showProgress();
+        }
+        getSingleInIntractor.getSingleUserInfoData(this);
+    }
+
+    @Override
     public void onSUFinished(SingleUsers singleUsers) {
        if (singleView!=null){
            singleView.setSingleUserInfoData(singleUsers);
+           singleView.hideProgress();
        }
     }
 
@@ -34,11 +43,5 @@ public class SinglePresenterImpl implements SingleContract.SinglePresenter,Singl
        singleView = null;
     }
 
-    @Override
-    public void requestDataForSingleUser() {
-           if (singleView!=null){
-               singleView.showProgress();
-           }
-           getSingleInIntractor.getSingleUserInfoData(this);
-    }
+
 }

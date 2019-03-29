@@ -23,20 +23,21 @@ public class SingleUserIntractorImpl implements SingleContract.GetSingleInIntrac
 
     @Override
     public void getSingleUserInfoData(final OnSUFinishedListener OnSUFinishedListener) {
-        CommonUtils.startProgressBarDialog(context,"Sign In....Wait!");
+        //CommonUtils.startProgressBarDialog(context,"Sign In....Wait!");
         AzureApiInterface azureApiInterface = RetrofitInstance.getRetrofitInstance().create(AzureApiInterface.class);
         Call<SingleUsers> singleUsersCall = azureApiInterface.getSingleUser(id);
         singleUsersCall.enqueue(new Callback<SingleUsers>() {
             @Override
             public void onResponse(Call<SingleUsers> call, Response<SingleUsers> response) {
+               // CommonUtils.stopProgressBarDialog();
                 OnSUFinishedListener.onSUFinished(response.body());
-                CommonUtils.stopProgressBarDialog();
+
             }
 
             @Override
             public void onFailure(Call<SingleUsers> call, Throwable t) {
+                //CommonUtils.stopProgressBarDialog();
                 OnSUFinishedListener.onSUFailure(t);
-                CommonUtils.stopProgressBarDialog();
             }
         });
     }

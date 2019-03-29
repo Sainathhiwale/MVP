@@ -93,6 +93,14 @@ public class SingleUserFragment extends Fragment implements SingleContract.Singl
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (presenter!=null) {
+            presenter.onDestroy();
+        }
+    }
+
+    @Override
     public void showProgress() {
         CommonUtils.startProgressBarDialog(getActivity(),"getting user id");
     }
