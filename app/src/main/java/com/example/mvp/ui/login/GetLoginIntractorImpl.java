@@ -3,6 +3,7 @@ package com.example.mvp.ui.login;
 import com.example.mvp.data.model.User;
 import com.example.mvp.data.network.AzureApiInterface;
 import com.example.mvp.data.network.RetrofitInstance;
+import com.example.mvp.utils.CommonUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,11 +28,13 @@ public class GetLoginIntractorImpl implements LoginContract.GetLoginInIntractor 
         infoCall.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+                CommonUtils.stopProgressBarDialog();
                 OnLoginInFinishedListener.onFinished(response.body());
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+                CommonUtils.stopProgressBarDialog();
                OnLoginInFinishedListener.onFailure(t);
             }
         });

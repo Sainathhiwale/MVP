@@ -1,12 +1,10 @@
 package com.example.mvp.ui.all_users;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UserALLFragment extends Fragment implements UsersContract.UsersView{
+public class UserALLFragment extends Fragment implements UsersContract.UsersView {
     private static final String TAG = "UserALLFragment";
     @Bind(R.id.rvUsers)
     RecyclerView rvUsers;
@@ -80,14 +78,10 @@ public class UserALLFragment extends Fragment implements UsersContract.UsersView
     }
 
     @Override
-    public void setUsersListData(UserList userList) {
-        List<UserList> userLists = new ArrayList<>();
+    public void setUsersListData(List<UserList> userList) {
+        List userLists = new ArrayList();
          if (userList!=null){
-             String name = userList.getUserName();
-             String password = userList.getPassword();
-             Log.d(TAG, "setUsersListData: "+password);
-             Log.d(TAG, "setUsersListData: "+name);
-            userAdatpter = new UserAdatpter(getActivity(), (List<UserList>) userList);
+            userAdatpter = new UserAdatpter(getActivity(),userList);
             rvUsers.setAdapter(userAdatpter);
          }
     }

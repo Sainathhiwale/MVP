@@ -4,6 +4,8 @@ import com.example.mvp.data.model.SingleUsers;
 import com.example.mvp.data.model.User;
 import com.example.mvp.data.model.UserList;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -18,7 +20,7 @@ public interface AzureApiInterface {
     Call<User> loginUser(@Body User user);
 
     @GET("api/Users")
-    Call<UserList>getUserList();
+    Call<List<UserList>>getUserList();
 
     //get particular user just enter the user id
     @GET("api/Users/")

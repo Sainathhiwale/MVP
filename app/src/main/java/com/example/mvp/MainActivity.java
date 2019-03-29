@@ -1,5 +1,6 @@
 package com.example.mvp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -14,6 +15,7 @@ import com.example.mvp.data.DataManager;
 import com.example.mvp.myapp.AppController;
 import com.example.mvp.ui.all_users.UserALLFragment;
 import com.example.mvp.ui.home.HomeFragment;
+import com.example.mvp.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DataManager dataManager;
@@ -55,6 +57,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
              fragmentTransaction.replace(R.id.main_container,userALLFragment);
              fragmentTransaction.commit();
              fragmentTransaction.addToBackStack(null);
+         }else if (ids == R.id.nav_logout){
+             dataManager.clear();
+             Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+             startActivity(loginIntent);
+             finish();
          }
         return false;
     }

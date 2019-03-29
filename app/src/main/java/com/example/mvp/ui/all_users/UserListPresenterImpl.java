@@ -1,8 +1,8 @@
 package com.example.mvp.ui.all_users;
 
-import android.support.v4.app.FragmentActivity;
-
 import com.example.mvp.data.model.UserList;
+
+import java.util.List;
 
 public class UserListPresenterImpl implements UsersContract.UsersPresenter,UsersContract.GetUsersInIntractor.OnUserFinishedListener{
     private UsersContract.UsersView usersView;
@@ -30,7 +30,7 @@ public class UserListPresenterImpl implements UsersContract.UsersPresenter,Users
     }
 
     @Override
-    public void onUFinished(UserList userList) {
+    public void onUFinished(List<UserList> userList) {
         if (usersView!=null){
             usersView.setUsersListData(userList);
             usersView.hideProgress();

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/llinerlayout"
     tools:context=".ui.get_user.SingleUserFragment">
 
     <LinearLayout
@@ -18,7 +19,6 @@
         android:hint="enter user id"
         android:gravity="center"
         android:maxLines="1"
-        android:maxLength="10"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"/>
 
@@ -37,4 +37,10 @@
         android:layout_height="wrap_content">
 
     </ListView>
+   <!-- <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>-->
 </LinearLayout>

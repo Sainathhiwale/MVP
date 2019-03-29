@@ -12,13 +12,17 @@ import com.example.mvp.R;
 import com.example.mvp.data.model.UserList;
 import com.example.mvp.utils.AppConstants;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class UserAdatpter extends RecyclerView.Adapter<UserAdatpter.MyViewHolder> {
-    private List<UserList> userLists;
+    private List<UserList> userLists ;
     public Context context;
 
-    public UserAdatpter(Context context, List<UserList> userLists) {
+    public UserAdatpter(Context context, List<UserList>userLists) {
         this.context = context;
         this.userLists = userLists;
     }
@@ -33,7 +37,10 @@ public class UserAdatpter extends RecyclerView.Adapter<UserAdatpter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        UserList userList = userLists.get(position);
+
+         holder.tvUserName.setText(userLists.get(0).getUserName());
+         holder.tvUserPass.setText(userLists.get(1).getPassword());
+        /*UserList userList = userLists.get(position);
         if (userList.getID() != null) {
             holder.tvUserId.setText(Integer.parseInt(String.valueOf(userLists.get(position).getID())));
         } else {
@@ -48,7 +55,7 @@ public class UserAdatpter extends RecyclerView.Adapter<UserAdatpter.MyViewHolder
             holder.tvUserPass.setText(userLists.get(position).getPassword());
         } else {
             holder.tvUserPass.setText(AppConstants.EMPTY);
-        }
+        }*/
     }
 
     @Override
@@ -57,13 +64,17 @@ public class UserAdatpter extends RecyclerView.Adapter<UserAdatpter.MyViewHolder
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tvUserId, tvUserName, tvUserPass;
+            @Bind(R.id.tvUserId)
+            TextView tvUserId;
+            @Bind(R.id.tvUserName)
+            TextView tvUserName;
+            @Bind(R.id.tvUserPass)
+            TextView tvUserPass;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvUserId = (TextView) itemView.findViewById(R.id.tvUserId);
-            tvUserName = (TextView) itemView.findViewById(R.id.tvUserName);
-            tvUserPass = (TextView) itemView.findViewById(R.id.tvUserPass);
+            ButterKnife.bind(this,itemView);
+
         }
     }
 }

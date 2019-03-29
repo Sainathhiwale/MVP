@@ -15,9 +15,13 @@ import com.example.mvp.utils.AppConstants;
 import java.security.PublicKey;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class SingleUserAdapter extends RecyclerView.Adapter<SingleUserAdapter.MyViewHolder> {
      private List<SingleUsers> singleUsersList;
      private Context context;
+    private OnItemClickListener onItemClickListener;
 
     public SingleUserAdapter( Context context,List<SingleUsers> list) {
         this.context = context;
@@ -55,14 +59,28 @@ public class SingleUserAdapter extends RecyclerView.Adapter<SingleUserAdapter.My
         return singleUsersList.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView tvUserId,tvUserName,tvUserPass;
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        @Bind(R.id.tvUserId)
+        TextView tvUserId;
+        @Bind(R.id.tvUserName)
+        TextView tvUserName;
+        @Bind(R.id.tvUserPass)
+        TextView tvUserPass;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvUserId = (TextView)itemView.findViewById(R.id.tvUserId);
-            tvUserName = (TextView)itemView.findViewById(R.id.tvUserName);
-            tvUserPass = (TextView)itemView.findViewById(R.id.tvUserPass);
+            ButterKnife.bind(this,itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (onItemClickListener!=null){
+                onItemClickListener.onItemClick(v, (SingleUsers) v.getTag());
+            }
         }
     }
+      public interface OnItemClickListener{
+        void onItemClick(View view,SingleUsers position);
+      }
 }
