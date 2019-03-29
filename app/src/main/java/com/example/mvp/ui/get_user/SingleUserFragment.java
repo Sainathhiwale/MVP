@@ -47,7 +47,7 @@ public class SingleUserFragment extends Fragment implements SingleContract.Singl
     LinearLayout llinerlayout;
     private SinglePresenterImpl presenter;
     private SingleUserAdapter adapter;
-
+    List<SingleUsers> arraylist;
     public SingleUserFragment() {
         // Required empty public constructor
     }
@@ -112,6 +112,7 @@ public class SingleUserFragment extends Fragment implements SingleContract.Singl
 
     @Override
     public void setSingleUserInfoData(SingleUsers singleUsers) {
+         arraylist = new ArrayList<>();
          if (singleUsers!=null){
              List  list = new ArrayList();
              list.add(singleUsers.getPassword());
@@ -123,8 +124,10 @@ public class SingleUserFragment extends Fragment implements SingleContract.Singl
              }
 
 
+
          }
     }
+
 
     @Override
     public void onResponseFailure(Throwable throwable) {

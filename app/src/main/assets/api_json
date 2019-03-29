@@ -1,0 +1,34 @@
+Base Url : https://fakerestapi.azurewebsites.net/
+ Login
+ @Headers("Content-Type: application/json")
+    @POST("api/Users")
+    Call<User> loginUser(@Body User user);
+    JsonObject send
+    {
+      "ID": 0,
+      "UserName": "string",
+      "Password": "string"
+    }
+
+    JsonArray getting with
+    [
+      {
+        "ID": 0,
+        "UserName": "string",
+        "Password": "string"
+      }
+    ]
+    @GET("api/Users")
+    Call<List<UserList>>getUserList();
+
+
+    //get particular user just enter the user id
+    enter the user id =3
+    get response
+{
+  "ID": 3,
+  "UserName": "User 3",
+  "Password": "Password3"
+}
+    @GET("api/Users/")
+    Call<SingleUsers> getSingleUser(@Query("id") int id);
