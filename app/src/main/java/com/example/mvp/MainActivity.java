@@ -13,9 +13,10 @@ import android.view.MenuItem;
 
 import com.example.mvp.data.DataManager;
 import com.example.mvp.myapp.AppController;
-import com.example.mvp.ui.all_users.UserALLFragment;
+import com.example.mvp.ui.user.all_users.UserALLFragment;
 import com.example.mvp.ui.home.HomeFragment;
 import com.example.mvp.ui.login.LoginActivity;
+import com.example.mvp.ui.user.UsersActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DataManager dataManager;
@@ -44,24 +45,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         HomeFragment homeFragment = new HomeFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container,homeFragment);
-        fragmentTransaction.commit();
         fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
          int ids = menuItem.getItemId();
          if (ids ==R.id.nav_alluser){
-             UserALLFragment userALLFragment = new UserALLFragment();
-             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-             fragmentTransaction.replace(R.id.main_container,userALLFragment);
-             fragmentTransaction.commit();
-             fragmentTransaction.addToBackStack(null);
+             Intent intent = new Intent(MainActivity.this, UsersActivity.class);
+             startActivity(intent);
          }else if (ids == R.id.nav_logout){
              dataManager.clear();
              Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
              startActivity(loginIntent);
              finish();
+         }else if (ids == R.id.nav_coverphoto){
+
          }
         return false;
     }

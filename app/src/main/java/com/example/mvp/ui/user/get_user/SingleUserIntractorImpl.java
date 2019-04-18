@@ -1,11 +1,10 @@
-package com.example.mvp.ui.get_user;
+package com.example.mvp.ui.user.get_user;
 
 import android.content.Context;
 
 import com.example.mvp.data.model.SingleUsers;
 import com.example.mvp.data.network.AzureApiInterface;
 import com.example.mvp.data.network.RetrofitInstance;
-import com.example.mvp.utils.CommonUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;

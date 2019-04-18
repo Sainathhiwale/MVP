@@ -5,4 +5,22 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="colorLinner">#2196F3</color>
+
+    <color name="textTabLight">#7EC6FF</color>
+    <color name="textTabBright">#ffffff</color>
+
+    <color name="outline_gray">#cccccc</color>
+
+
+
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorTextHint">#51d8c7</color>
+    <color name="colorBlack">#212121</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="startblue">#09c6df</color>
+    <color name="endblue">#0bcce6</color>
+    <color name="graylight">#fafafa</color>
+
+
 </resources>

@@ -1,4 +1,4 @@
-package com.example.mvp.ui.all_users;
+package com.example.mvp.ui.user.all_users;
 
 import android.content.Context;
 

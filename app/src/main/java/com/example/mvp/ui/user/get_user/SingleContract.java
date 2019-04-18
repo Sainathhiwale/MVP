@@ -1,4 +1,4 @@
-package com.example.mvp.ui.get_user;
+package com.example.mvp.ui.user.get_user;
 
 import com.example.mvp.data.model.SingleUsers;
 

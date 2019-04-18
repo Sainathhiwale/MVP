@@ -38,8 +38,14 @@ public class UserAdatpter extends RecyclerView.Adapter<UserAdatpter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-         holder.tvUserName.setText(userLists.get(0).getUserName());
-         holder.tvUserPass.setText(userLists.get(1).getPassword());
+         holder.tvUserName.setText(userLists.get(position).getUserName());
+         holder.tvUserPass.setText(userLists.get(position).getPassword());
+       /* UserList userList = userLists.get(position);
+         if (userList.getID()!=null) {
+             holder.tvUserId.setText(userLists.get(position).getID());
+         }else {
+             holder.tvUserId.setText(AppConstants.EMPTY);
+         }*/
         /*UserList userList = userLists.get(position);
         if (userList.getID() != null) {
             holder.tvUserId.setText(Integer.parseInt(String.valueOf(userLists.get(position).getID())));

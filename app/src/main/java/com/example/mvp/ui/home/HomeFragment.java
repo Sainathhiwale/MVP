@@ -8,12 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.mvp.R;
-import com.example.mvp.ui.all_users.UserALLFragment;
-import com.example.mvp.ui.get_user.SingleUserFragment;
+import com.example.mvp.ui.user.all_users.UserALLFragment;
+import com.example.mvp.ui.user.get_user.SingleUserFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

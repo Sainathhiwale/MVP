@@ -4,9 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginRight="@dimen/margin_8"
-    android:layout_marginLeft="@dimen/margin_8"
     tools:context=".ui.home.HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_8"
+        android:layout_marginLeft="@dimen/margin_8"
+        android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/llUserList"
@@ -76,4 +84,74 @@
             android:textStyle="bold" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llAuthers"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/margin_12"
+        android:background="@drawable/cardview_shape"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <TextView
+            android:id="@+id/tvAuthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_12"
+            android:text="Authers"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_margin="30dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llActivities"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/margin_12"
+        android:background="@drawable/cardview_shape"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <TextView
+            android:id="@+id/tvActivities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_12"
+            android:text="Activities"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_margin="30dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llCoverPhto"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/margin_12"
+        android:background="@drawable/cardview_shape"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <TextView
+            android:id="@+id/tvCoverPhto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_12"
+            android:text="Cover Photo"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_margin="30dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

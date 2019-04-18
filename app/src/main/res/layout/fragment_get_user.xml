@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/llinerlayout"
-    tools:context=".ui.get_user.SingleUserFragment">
+    tools:context=".ui.user.get_user.SingleUserFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
