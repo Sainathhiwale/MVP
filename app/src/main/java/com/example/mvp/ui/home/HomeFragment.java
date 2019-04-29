@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.mvp.R;
+import com.example.mvp.ui.authers.AuthersFragment;
 import com.example.mvp.ui.user.all_users.UserALLFragment;
 import com.example.mvp.ui.user.get_user.SingleUserFragment;
 
@@ -43,7 +44,7 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    @OnClick({R.id.llUserList,R.id.llSingleUser,R.id.llBook})
+    @OnClick({R.id.llUserList,R.id.llSingleUser,R.id.llBook,R.id.llAuthers})
     public void onViewClicked(View view){
         switch (view.getId()){
             case R.id.llUserList:
@@ -63,6 +64,15 @@ public class HomeFragment extends Fragment {
             case R.id.llBook:
                 Toast.makeText(getActivity(), "Book list", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.llAuthers:
+                AuthersFragment authersFragment = new AuthersFragment();
+                FragmentTransaction fragmentTransaction2  = getFragmentManager().beginTransaction();
+                fragmentTransaction2.replace(R.id.main_container,authersFragment);
+                fragmentTransaction2.commit();
+                fragmentTransaction2.addToBackStack(null);
+                break;
+
+
         }
     }
 }

@@ -8,7 +8,7 @@
     tools:context=".ui.user.add_users.AddUsersFragment">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/margin_8"
         android:layout_marginLeft="@dimen/margin_8"
@@ -35,17 +35,81 @@
         </android.support.design.widget.TextInputLayout>
 
     </RelativeLayout>
-
+<View
+    android:layout_marginTop="@dimen/margin_8"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"/>
     <LinearLayout
+        android:id="@+id/lliner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8"
         android:layout_marginRight="@dimen/margin_8"
         android:layout_marginLeft="@dimen/margin_8"
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/etNameId"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:lines="1"
+            android:maxLines="1"
+            android:maxLength="5"
+            android:textColorHighlight="#7cff88"
+            android:hint="ID"
+            android:padding="18dp"/>
+
+        <EditText
+            android:id="@+id/etUsrName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLines="1"
+            android:maxLength="5"
+            android:textColorHighlight="#7cff88"
+            android:hint="Name"
+            android:padding="18dp"/>
+
+        <EditText
+            android:id="@+id/etUsrPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLines="1"
+            android:maxLength="5"
+            android:textColorHighlight="#7cff88"
+            android:hint="Password"
+            android:padding="18dp"/>
+
+        <Button
+            android:id="@+id/btnAddUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:text="Add User"/>
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lliner"
+        android:layout_marginRight="@dimen/margin_8"
+        android:layout_marginLeft="@dimen/margin_8">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+
 
 </LinearLayout>

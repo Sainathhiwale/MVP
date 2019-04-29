@@ -40,29 +40,7 @@ public class UserAdatpter extends RecyclerView.Adapter<UserAdatpter.MyViewHolder
 
          holder.tvUserName.setText(userLists.get(position).getUserName());
          holder.tvUserPass.setText(userLists.get(position).getPassword());
-       /* UserList userList = userLists.get(position);
-         if (userList.getID()!=null) {
-             holder.tvUserId.setText(userLists.get(position).getID());
-         }else {
-             holder.tvUserId.setText(AppConstants.EMPTY);
-         }*/
-        /*UserList userList = userLists.get(position);
-        if (userList.getID() != null) {
-            holder.tvUserId.setText(Integer.parseInt(String.valueOf(userLists.get(position).getID())));
-        } else {
-            holder.tvUserId.setText(AppConstants.EMPTY);
-        }
-        if (userList.getUserName() != null) {
-            holder.tvUserName.setText(userLists.get(position).getUserName());
-        } else {
-            holder.tvUserName.setText(AppConstants.EMPTY);
-        }
-        if (userList.getPassword() != null) {
-            holder.tvUserPass.setText(userLists.get(position).getPassword());
-        } else {
-            holder.tvUserPass.setText(AppConstants.EMPTY);
-        }*/
-    }
+         }
 
     @Override
     public int getItemCount() {

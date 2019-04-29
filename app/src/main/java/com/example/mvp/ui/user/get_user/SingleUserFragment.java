@@ -76,7 +76,7 @@ public class SingleUserFragment extends Fragment implements SingleContract.Singl
         if (getActivity()!=null) {
             String userId = etUserId.getText().toString().trim();
             int id  = Integer.parseInt(userId);
-            if (id>0 && id<10) {
+            if (id>0 && id<22) {
                 presenter = new SinglePresenterImpl(this, new SingleUserIntractorImpl(id));
                 presenter.requestDataForSingleUser();
             }else {

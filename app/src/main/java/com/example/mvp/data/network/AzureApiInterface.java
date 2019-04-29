@@ -4,6 +4,7 @@ import com.example.mvp.data.model.AddUser;
 import com.example.mvp.data.model.SingleUsers;
 import com.example.mvp.data.model.User;
 import com.example.mvp.data.model.UserList;
+import com.example.mvp.data.model.authers.AuthorsList;
 
 import java.util.List;
 
@@ -30,6 +31,11 @@ public interface AzureApiInterface {
 
     //send dynamic user id using put http request
     @PUT("api/Users/")
-    Call<AddUser> addUsers(@Query("id")int id);
+    Call<AddUser> addUsers(@Query("id")int id ,int userId,String userName,String password);
+
+
+    //Authers
+    @GET("api/Authors")
+    Call<List<AuthorsList>> getAutherList();
 
 }
