@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.mvp.R;
-import com.example.mvp.ui.authers.AuthersFragment;
+import com.example.mvp.ui.authers.authersList.AuthersFragment;
 import com.example.mvp.ui.user.all_users.UserALLFragment;
 import com.example.mvp.ui.user.get_user.SingleUserFragment;
 

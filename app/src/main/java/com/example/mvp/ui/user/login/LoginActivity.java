@@ -1,4 +1,4 @@
-package com.example.mvp.ui.login;
+package com.example.mvp.ui.user.login;
 
 import android.content.Intent;
 import android.os.Bundle;

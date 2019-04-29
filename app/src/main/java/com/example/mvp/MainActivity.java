@@ -13,9 +13,8 @@ import android.view.MenuItem;
 
 import com.example.mvp.data.DataManager;
 import com.example.mvp.myapp.AppController;
-import com.example.mvp.ui.user.all_users.UserALLFragment;
 import com.example.mvp.ui.home.HomeFragment;
-import com.example.mvp.ui.login.LoginActivity;
+import com.example.mvp.ui.user.login.LoginActivity;
 import com.example.mvp.ui.user.UsersActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{

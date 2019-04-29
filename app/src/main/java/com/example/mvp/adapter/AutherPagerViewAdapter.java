@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.mvp.ui.authers.AuthersFragment;
+import com.example.mvp.ui.authers.authersList.AuthersFragment;
 
 public class AutherPagerViewAdapter extends FragmentPagerAdapter {
     public AutherPagerViewAdapter(FragmentManager fm) {

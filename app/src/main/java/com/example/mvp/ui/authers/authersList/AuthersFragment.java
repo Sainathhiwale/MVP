@@ -1,4 +1,4 @@
-package com.example.mvp.ui.authers;
+package com.example.mvp.ui.authers.authersList;
 
 
 import android.os.Bundle;

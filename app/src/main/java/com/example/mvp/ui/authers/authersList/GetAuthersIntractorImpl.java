@@ -1,7 +1,6 @@
-package com.example.mvp.ui.authers;
+package com.example.mvp.ui.authers.authersList;
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 
 import com.example.mvp.data.model.authers.AuthorsList;
 import com.example.mvp.data.network.AzureApiInterface;
