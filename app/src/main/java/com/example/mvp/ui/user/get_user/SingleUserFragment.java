@@ -31,12 +31,12 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SingleUserFragment extends Fragment implements SingleContract.SingleView{
+public class SingleUserFragment extends Fragment implements SingleContract.SingleView {
     private static final String TAG = "SingleUserFragment";
     @Bind(R.id.lViewUser)
     ListView lViewUser;
-   /* @Bind(R.id.rvList)
-    RecyclerView rvList;*/
+    /* @Bind(R.id.rvList)
+     RecyclerView rvList;*/
     @Bind(R.id.etUserId)
     EditText etUserId;
     @Bind(R.id.btnGetUser)
@@ -46,6 +46,7 @@ public class SingleUserFragment extends Fragment implements SingleContract.Singl
     private SinglePresenterImpl presenter;
     private SingleUserAdapter adapter;
     List<SingleUsers> arraylist;
+
     public SingleUserFragment() {
         // Required empty public constructor
     }
@@ -56,74 +57,90 @@ public class SingleUserFragment extends Fragment implements SingleContract.Singl
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_get_user, container, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         presenter = new SinglePresenterImpl();
         return view;
     }
 
 
-
     @OnClick(R.id.btnGetUser)
-    public void onViewClicked(View view){
-        switch (view.getId()){
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
             case R.id.btnGetUser:
                 initData();
                 break;
 
         }
     }
+
     private void initData() {
-        if (getActivity()!=null) {
+        if (getActivity() != null) {
             String userId = etUserId.getText().toString().trim();
-            int id  = Integer.parseInt(userId);
-            if (id>0 && id<22) {
-                presenter = new SinglePresenterImpl(this, new SingleUserIntractorImpl(id));
-                presenter.requestDataForSingleUser();
-            }else {
-                Snackbar snackbar = Snackbar.make(llinerlayout,"Invalid number:"+id,Snackbar.LENGTH_SHORT);
+            if (userId != null && userId.isEmpty()) {
+                Snackbar snackbar = Snackbar.make(llinerlayout, "Please Enter the User ID!:", Snackbar.LENGTH_SHORT);
                 View view = snackbar.getView();
-                TextView textView = (TextView)view.findViewById(android.support.design.R.id.snackbar_text);
+                TextView textView = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
                 textView.setTextColor(Color.RED);
                 snackbar.show();
-                //Toast.makeText(getActivity(), "Invalid number:"+id, Toast.LENGTH_SHORT).show();
+            } else {
+                int id = Integer.parseInt(userId);
+                if (id > 0) {
+                    presenter = new SinglePresenterImpl(this, new SingleUserIntractorImpl(id));
+                    presenter.requestDataForSingleUser();
+                } else {
+                    Snackbar snackbar = Snackbar.make(llinerlayout, "Invalid number:" + id, Snackbar.LENGTH_SHORT);
+                    View view = snackbar.getView();
+                    TextView textView = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
+                    textView.setTextColor(Color.RED);
+                    snackbar.show();
+                    //Toast.makeText(getActivity(), "Invalid number:"+id, Toast.LENGTH_SHORT).show();
+                }
             }
+
+        }
+    }
+
+    public boolean isEmptyNumber(Long number) {
+        if (number == null || number == 0) {
+            return true;
+        } else {
+            return false;
         }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (presenter!=null) {
+        if (presenter != null) {
             presenter.onDestroy();
         }
     }
 
     @Override
     public void showProgress() {
-        CommonUtils.startProgressBarDialog(getActivity(),"getting user id");
+        CommonUtils.startProgressBarDialog(getActivity(), "getting user id");
     }
 
     @Override
     public void hideProgress() {
-      CommonUtils.stopProgressBarDialog();
+        CommonUtils.stopProgressBarDialog();
     }
 
     @Override
     public void setSingleUserInfoData(SingleUsers singleUsers) {
-         arraylist = new ArrayList<>();
-         if (singleUsers!=null){
-             List  list = new ArrayList();
-             list.add(singleUsers.getPassword());
-             list.add(singleUsers.getUserName());
-             list.add(singleUsers.getID());
-             for (int i=0;i<list.size();i++){
-                 ArrayAdapter<SingleUsers> arrayAdapter = new ArrayAdapter<SingleUsers>(getActivity(),android.R.layout.simple_list_item_1,list);
-                 lViewUser.setAdapter(arrayAdapter);
-             }
+        arraylist = new ArrayList<>();
+        if (singleUsers != null) {
+            List list = new ArrayList();
+            list.add(singleUsers.getPassword());
+            list.add(singleUsers.getUserName());
+            list.add(singleUsers.getID());
+            for (int i = 0; i < list.size(); i++) {
+                ArrayAdapter<SingleUsers> arrayAdapter = new ArrayAdapter<SingleUsers>(getActivity(), android.R.layout.simple_list_item_1, list);
+                lViewUser.setAdapter(arrayAdapter);
+            }
 
 
-
-         }
+        }
     }
 
 

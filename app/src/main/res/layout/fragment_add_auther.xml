@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.authers.add_authers.AddAutherFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <RelativeLayout
+        android:id="@+id/rLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_12"
+        android:layout_marginRight="@dimen/margin_8"
+        android:layout_marginLeft="@dimen/margin_8">
+
+        <TextView
+            android:id="@+id/tvadduser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="Add User"/>
+
+        <EditText
+            android:id="@+id/etID"
+            android:layout_below="@+id/tvadduser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:hint="User ID"/>
+
+        <EditText
+            android:id="@+id/etBookId"
+            android:layout_below="@+id/etID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:hint="Book ID"/>
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_below="@+id/etBookId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:hint="First Name"/>
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_below="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:hint="User ID"/>
+
+
+        <Button
+            android:id="@+id/btnAddAuthers"
+            android:layout_below="@+id/etLastName"
+            android:text="Add Auther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+</LinearLayout>

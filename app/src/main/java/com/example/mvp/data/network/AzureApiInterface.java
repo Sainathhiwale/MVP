@@ -4,6 +4,7 @@ import com.example.mvp.data.model.AddUser;
 import com.example.mvp.data.model.SingleUsers;
 import com.example.mvp.data.model.User;
 import com.example.mvp.data.model.UserList;
+import com.example.mvp.data.model.authers.AddAuthers;
 import com.example.mvp.data.model.authers.AuthorsList;
 
 import java.util.List;
@@ -37,5 +38,8 @@ public interface AzureApiInterface {
     //Authers
     @GET("api/Authors")
     Call<List<AuthorsList>> getAutherList();
+
+    @POST("api/Authors")
+    Call<AddAuthers> addAuthers(@Body AddAuthers addAuthers);
 
 }
