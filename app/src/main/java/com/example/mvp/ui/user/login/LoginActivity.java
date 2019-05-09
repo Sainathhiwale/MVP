@@ -1,11 +1,16 @@
 package com.example.mvp.ui.user.login;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mvp.MainActivity;
@@ -14,6 +19,8 @@ import com.example.mvp.data.DataManager;
 import com.example.mvp.data.model.User;
 import com.example.mvp.myapp.AppController;
 import com.example.mvp.utils.CommonUtils;
+
+import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,8 +33,22 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
     EditText etPassword;
     @Bind(R.id.btnLogin)
     Button btnLogin;
+    @Bind(R.id.llinerLayout)
+    LinearLayout llinerLayout;
+
     private LoginPresenterImpl presenter;
     private DataManager dataManager;
+
+    private static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    //"(?=.*[0-9])" +         //at least 1 digit
+                    //"(?=.*[a-z])" +         //at least 1 lower case letter
+                    //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{4,}" +               //at least 4 characters
+                    "$");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +69,12 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
 
     @Override
     public void showProgress() {
-        CommonUtils.startProgressBarDialog(this,"Login in.......");
+        CommonUtils.startProgressBarDialog(this, "Login in.......");
     }
 
     @Override
     public void hideProgress() {
-       CommonUtils.stopProgressBarDialog();
+        CommonUtils.stopProgressBarDialog();
     }
 
     @Override
@@ -76,7 +97,46 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
 
     @OnClick(R.id.btnLogin)
     public void onViewClickde(View view) {
+        if (!validateEmail() | !validatePassword()) {
+            return;
+        }
         getLoginUser();
+
+    }
+
+    public boolean validateEmail() {
+        String emailInput = etUser.getText().toString().trim();
+        if (emailInput.isEmpty()) {
+            etUser.setError("Field can't be empty");
+            return false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+            etUser.setError("Please enter a valid email address");
+            return false;
+        } else {
+            etUser.setError(null);
+            return true;
+        }
+    }
+
+    public boolean validatePassword() {
+        String passwordInput = etPassword.getText().toString().trim();
+        if (passwordInput.isEmpty()) {
+            etPassword.setError("Field can't be empty");
+            return false;
+        } else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
+            etPassword.setError("Password too weak");
+            Snackbar snackbar = Snackbar
+                    .make(llinerLayout, "any letter"+"\n"+"at least 1 special character,no white spaces,at least 4 characters", Snackbar.LENGTH_LONG);
+            View sbView = snackbar.getView();
+            TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+            textView.setTextColor(Color.YELLOW);
+            snackbar.show();
+
+            return false;
+        } else {
+            etPassword.setError(null);
+            return true;
+        }
     }
 
     private void getLoginUser() {

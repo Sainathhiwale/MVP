@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
              finish();
          }else if (ids == R.id.nav_coverphoto){
 
+         }else if(ids == R.id.nav_authers){
+
          }
         return false;
     }
