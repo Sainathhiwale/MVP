@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background"
     tools:context=".ui.user.UsersActivity">
 
 
@@ -24,7 +23,7 @@
             android:fontFamily="@font/nunito_semibold"
             android:text="Add User"
             android:padding="15dp"
-            android:textColor="@color/textTabBright"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp"/>
 
         <TextView
@@ -35,7 +34,7 @@
             android:fontFamily="@font/nunito_semibold"
             android:text="All Users"
             android:padding="15dp"
-            android:textColor="@color/textTabBright"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp"/>
 
         <TextView
@@ -46,7 +45,7 @@
             android:fontFamily="@font/nunito_semibold"
             android:text="User"
             android:padding="15dp"
-            android:textColor="@color/textTabBright"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp"/>
     </LinearLayout>
 

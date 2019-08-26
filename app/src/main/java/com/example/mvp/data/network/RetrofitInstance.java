@@ -2,6 +2,7 @@ package com.example.mvp.data.network;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +30,7 @@ public class RetrofitInstance {
             Gson gson = new GsonBuilder().serializeNulls().create();
             retrofit  = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
         }

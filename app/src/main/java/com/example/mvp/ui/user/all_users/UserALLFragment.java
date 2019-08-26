@@ -15,7 +15,6 @@ import com.example.mvp.adapter.UserAdatpter;
 import com.example.mvp.data.model.UserList;
 import com.example.mvp.utils.CommonUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -42,53 +41,61 @@ public class UserALLFragment extends Fragment implements UsersContract.UsersView
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user_all, container, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         initView();
         initData();
         return view;
     }
 
     private void initView() {
+
         layoutManager = new LinearLayoutManager(getActivity());
         rvUsers.setLayoutManager(layoutManager);
     }
 
+
+
     private void initData() {
-        presenter = new UserListPresenterImpl(this,new GetUserListIntractorImpl(getActivity()));
+        presenter = new UserListPresenterImpl(this, new GetUserListIntractorImpl(getActivity()));
         presenter.requestDataForUserList();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (presenter!=null){
+        if (presenter != null) {
             presenter.onDestroy();
         }
     }
 
     @Override
     public void showProgress() {
-        CommonUtils.startProgressBarDialog(getActivity(),"Fetching the userlist data..wait");
+        CommonUtils.startProgressBarDialog(getActivity(), "Fetching the userlist data..wait");
 
     }
 
     @Override
     public void hideProgress() {
-      CommonUtils.stopProgressBarDialog();
+        CommonUtils.stopProgressBarDialog();
     }
 
     @Override
     public void setUsersListData(List<UserList> userList) {
-        List userLists = new ArrayList();
-         if (userList!=null){
-            userAdatpter = new UserAdatpter(getActivity(),userList);
+        if (userList != null) {
+            userAdatpter = new UserAdatpter(getActivity(), userList);
             rvUsers.setAdapter(userAdatpter);
-         }
+        }
     }
 
     @Override
     public void onResponseFailure(Throwable throwable) {
         Toast.makeText(getActivity(),
                 "Something went wrong please try again", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

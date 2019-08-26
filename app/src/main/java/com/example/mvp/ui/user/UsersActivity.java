@@ -35,7 +35,7 @@ public class UsersActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
         ButterKnife.bind(this);
-        initView();
+       initView();
     }
 
     private void initView() {
@@ -63,32 +63,32 @@ public class UsersActivity extends AppCompatActivity  {
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void changeTabs(int position) {
         if (position==0){
-            tvAddUser.setTextColor(getColor(R.color.textTabBright));
+            tvAddUser.setTextColor(getColor(R.color.colorBlack));
             tvAddUser.setTextSize(18);
 
-            tvAllUsers.setTextColor(getColor(R.color.textTabLight));
+            tvAllUsers.setTextColor(getColor(R.color.colorBlack));
             tvAllUsers.setTextSize(16);
 
-            tvSingleUser.setTextColor(getColor(R.color.textTabLight));
+            tvSingleUser.setTextColor(getColor(R.color.colorBlack));
             tvSingleUser.setTextSize(16);
         }if (position ==1){
-            tvAllUsers.setTextColor(getColor(R.color.textTabBright));
+            tvAllUsers.setTextColor(getColor(R.color.colorBlack));
             tvAllUsers.setTextSize(18);
 
-            tvSingleUser.setTextColor(getColor(R.color.textTabLight));
+            tvSingleUser.setTextColor(getColor(R.color.colorBlack));
             tvSingleUser.setTextSize(16);
 
-            tvAddUser.setTextColor(getColor(R.color.textTabLight));
+            tvAddUser.setTextColor(getColor(R.color.colorBlack));
             tvAddUser.setTextSize(16);
 
         }if (position ==2){
-            tvSingleUser.setTextColor(getColor(R.color.textTabBright));
+            tvSingleUser.setTextColor(getColor(R.color.colorBlack));
             tvSingleUser.setTextSize(18);
 
-            tvAddUser.setTextColor(getColor(R.color.textTabLight));
+            tvAddUser.setTextColor(getColor(R.color.colorBlack));
             tvAddUser.setTextSize(16);
 
-            tvAllUsers.setTextColor(getColor(R.color.textTabLight));
+            tvAllUsers.setTextColor(getColor(R.color.colorBlack));
             tvAllUsers.setTextSize(16);
 
         }

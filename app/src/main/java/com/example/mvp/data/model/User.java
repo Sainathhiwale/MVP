@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import io.reactivex.Scheduler;
+
 public class User{
 
 	@SerializedName("UserName")
@@ -73,4 +75,7 @@ public class User{
 			",password = '" + password + '\'' + 
 			"}";
 		}
+
+
+
 }

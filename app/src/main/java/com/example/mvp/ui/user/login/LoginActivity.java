@@ -3,21 +3,22 @@ package com.example.mvp.ui.user.login;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mvp.MainActivity;
+import com.example.mvp.ui.main.MainActivity;
 import com.example.mvp.R;
 import com.example.mvp.data.DataManager;
 import com.example.mvp.data.model.User;
 import com.example.mvp.myapp.AppController;
+import com.example.mvp.utils.AppConstants;
 import com.example.mvp.utils.CommonUtils;
 
 import java.util.regex.Pattern;
@@ -25,6 +26,7 @@ import java.util.regex.Pattern;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.disposables.CompositeDisposable;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.LoginView {
     @Bind(R.id.etUser)
@@ -33,8 +35,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
     EditText etPassword;
     @Bind(R.id.btnLogin)
     Button btnLogin;
-    @Bind(R.id.llinerLayout)
-    LinearLayout llinerLayout;
+    @Bind(R.id.coordinatorLayout)
+    CoordinatorLayout coordinatorLayout;
+    private CompositeDisposable disposable = new CompositeDisposable();
 
     private LoginPresenterImpl presenter;
     private DataManager dataManager;
@@ -63,7 +66,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
         } else {
             presenter = new LoginPresenterImpl(this);
         }
-        // presenter = new LoginPresenterImpl(this);
     }
 
 
@@ -84,8 +86,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
             dataManager.setUserID(String.valueOf(user.getiD()));
             dataManager.setUserName(user.getUserName());
             Intent homeIntent = new Intent(this, MainActivity.class);
+            homeIntent.putExtra(AppConstants.USERNAME,etUser.getText().toString().trim());
             startActivity(homeIntent);
-
         }
     }
 
@@ -126,7 +128,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
         } else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
             etPassword.setError("Password too weak");
             Snackbar snackbar = Snackbar
-                    .make(llinerLayout, "any letter"+"\n"+"at least 1 special character,no white spaces,at least 4 characters", Snackbar.LENGTH_LONG);
+                    .make(coordinatorLayout, "any letter"+"\n"+"at least 1 special character,no white spaces,at least 4 characters", Snackbar.LENGTH_LONG);
             View sbView = snackbar.getView();
             TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
             textView.setTextColor(Color.YELLOW);

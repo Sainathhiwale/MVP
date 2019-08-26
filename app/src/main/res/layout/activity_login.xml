@@ -1,49 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/llinerLayout"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.user.login.LoginActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/tvBackArrow"
+        android:layout_width="30dp"
+        android:layout_height="41dp"
+        android:layout_marginLeft="@dimen/margin_8"
+        android:layout_marginTop="@dimen/margin_8"
+        android:background="@drawable/ic_arrow_back_black_24dp" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/etUser"
-            android:layout_marginTop="30dp"
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:paddingTop="@dimen/padding_56"
+            android:paddingLeft="@dimen/padding_20"
+            android:paddingRight="@dimen/padding_20"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_50"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent"/>
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvAppTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Examen learning"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"/>
 
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/margin_10"
+                    android:layout_marginEnd="@dimen/margin_10"
+                    android:layout_weight="0.1"
+                    android:src="@drawable/ic_email_black_24dp"/>
 
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent"/>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:layout_weight="0.9"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/margin_8">
 
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent"/>
-    </LinearLayout>
+                    <EditText
+                        android:id="@+id/etUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:inputType="text"
+                        android:hint="Email" />
 
+                </android.support.design.widget.TextInputLayout>
 
-</LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:weightSum="1">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/margin_10"
+                    android:layout_marginEnd="@dimen/margin_10"
+                    android:layout_weight="0.1"
+                    android:src="@drawable/ic_lock_black_24dp"/>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8"
+                    app:passwordToggleEnabled="true"
+                    android:layout_weight="0.9"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/margin_8">
+
+                    <EditText android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:inputType="textPassword"
+                        android:drawableRight="@drawable/ic_visibility_off_black_24dp"
+                        android:hint="Password" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvForgotPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="250dp"
+                    android:text="@string/forgot"
+                    tools:textColorLink="@color/grey_400" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                android:background="@color/colorbackground"
+                android:layout_marginTop="@dimen/margin_24"
+                android:layout_marginBottom="@dimen/margin_24"
+                android:padding="@dimen/padding_12"
+                android:text="Login"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/actvSignupLink"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:text="Create Account ?"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

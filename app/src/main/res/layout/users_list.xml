@@ -7,8 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-
-
     <android.support.v7.widget.CardView
         android:id="@+id/android_card_view_example3"
         android:layout_width="match_parent"
