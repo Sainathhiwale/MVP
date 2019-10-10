@@ -11,6 +11,10 @@ public class AllBookPresenterImpl implements AllBookContract.GetAllBookPresenter
         this.getAllBookIntractor = getAllBookIntractor;
     }
 
+    public AllBookPresenterImpl(AllBookContract.GetAllBookView getAllBookView) {
+        this.getAllBookView = getAllBookView;
+    }
+
     @Override
     public void onDestory() {
        getAllBookView = null;
