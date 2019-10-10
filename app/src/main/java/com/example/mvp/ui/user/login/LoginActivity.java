@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.example.mvp.ui.main.MainActivity;
 import com.example.mvp.R;
 import com.example.mvp.data.DataManager;
-import com.example.mvp.data.model.User;
+import com.example.mvp.data.model.user.User;
 import com.example.mvp.myapp.AppController;
 import com.example.mvp.utils.AppConstants;
 import com.example.mvp.utils.CommonUtils;

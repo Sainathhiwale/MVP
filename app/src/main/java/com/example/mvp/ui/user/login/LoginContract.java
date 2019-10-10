@@ -1,6 +1,6 @@
 package com.example.mvp.ui.user.login;
 
-import com.example.mvp.data.model.User;
+import com.example.mvp.data.model.user.User;
 
 public interface LoginContract {
 

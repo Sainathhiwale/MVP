@@ -2,7 +2,7 @@ package com.example.mvp.ui.user.all_users;
 
 import android.content.Context;
 
-import com.example.mvp.data.model.UserList;
+import com.example.mvp.data.model.user.UserList;
 import com.example.mvp.data.network.AzureApiInterface;
 import com.example.mvp.data.network.RetrofitInstance;
 

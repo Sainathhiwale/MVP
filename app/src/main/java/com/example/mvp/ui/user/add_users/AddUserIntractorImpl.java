@@ -2,7 +2,7 @@ package com.example.mvp.ui.user.add_users;
 
 import android.content.Context;
 
-import com.example.mvp.data.model.AddUser;
+import com.example.mvp.data.model.user.AddUser;
 import com.example.mvp.data.network.AzureApiInterface;
 import com.example.mvp.data.network.RetrofitInstance;
 

@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mvp.R;
-import com.example.mvp.data.model.AddUser;
+import com.example.mvp.data.model.user.AddUser;
 import com.example.mvp.utils.CommonUtils;
 
 import butterknife.Bind;

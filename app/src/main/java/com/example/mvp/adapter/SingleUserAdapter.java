@@ -9,10 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.mvp.R;
-import com.example.mvp.data.model.SingleUsers;
+import com.example.mvp.data.model.user.SingleUsers;
 import com.example.mvp.utils.AppConstants;
 
-import java.security.PublicKey;
 import java.util.List;
 
 import butterknife.Bind;

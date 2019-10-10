@@ -1,6 +1,6 @@
 package com.example.mvp.ui.user.add_users;
 
-import com.example.mvp.data.model.AddUser;
+import com.example.mvp.data.model.user.AddUser;
 
 public class AddUserPresenterImpl implements AddUserContract.AddUserPresenter,AddUserContract.GetAddUserInIntractor.OnAddUserFinishedListener {
     private AddUserContract.AddUserView  addUserView;

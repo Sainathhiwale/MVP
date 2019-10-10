@@ -1,9 +1,11 @@
 package com.example.mvp.data.network;
 
-import com.example.mvp.data.model.AddUser;
-import com.example.mvp.data.model.SingleUsers;
-import com.example.mvp.data.model.User;
-import com.example.mvp.data.model.UserList;
+import com.example.mvp.data.model.book.BookInfoList;
+import com.example.mvp.data.model.book.PostBook;
+import com.example.mvp.data.model.user.AddUser;
+import com.example.mvp.data.model.user.SingleUsers;
+import com.example.mvp.data.model.user.User;
+import com.example.mvp.data.model.user.UserList;
 import com.example.mvp.data.model.authers.AddAuthers;
 import com.example.mvp.data.model.authers.AuthorsList;
 
@@ -15,7 +17,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface AzureApiInterface {
@@ -34,6 +35,12 @@ public interface AzureApiInterface {
     @PUT("api/Users/")
     Call<AddUser> addUsers(@Query("id")int id ,int userId,String userName,String password);
 
+    //book module
+    @POST("api/Books")
+    Call<PostBook>addBook(@Body PostBook postBook);
+
+    @GET("api/Books")
+    Call<BookInfoList>getBookList();
 
     //Authers
     @GET("api/Authors")

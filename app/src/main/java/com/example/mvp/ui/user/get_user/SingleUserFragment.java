@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.example.mvp.R;
 import com.example.mvp.adapter.SingleUserAdapter;
-import com.example.mvp.data.model.SingleUsers;
+import com.example.mvp.data.model.user.SingleUsers;
 import com.example.mvp.utils.CommonUtils;
 
 import java.util.ArrayList;

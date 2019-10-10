@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.mvp.R;
 import com.example.mvp.adapter.UserAdatpter;
-import com.example.mvp.data.model.UserList;
+import com.example.mvp.data.model.user.UserList;
 import com.example.mvp.utils.CommonUtils;
 
 import java.util.List;

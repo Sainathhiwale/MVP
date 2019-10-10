@@ -1,6 +1,6 @@
 package com.example.mvp.ui.user.get_user;
 
-import com.example.mvp.data.model.SingleUsers;
+import com.example.mvp.data.model.user.SingleUsers;
 
 public class SinglePresenterImpl implements SingleContract.SinglePresenter,SingleContract.GetSingleInIntractor.OnSUFinishedListener {
     private  SingleContract.SingleView singleView;

@@ -1,8 +1,9 @@
-package com.example.mvp.data.model;
+package com.example.mvp.data.model.user;
 
 import com.google.gson.annotations.SerializedName;
 
-public class AddUser{
+
+public class UserDto{
 
 	@SerializedName("UserName")
 	private String userName;
@@ -40,7 +41,7 @@ public class AddUser{
 	@Override
  	public String toString(){
 		return 
-			"AddUser{" + 
+			"UserDto{" + 
 			"userName = '" + userName + '\'' + 
 			",iD = '" + iD + '\'' + 
 			",password = '" + password + '\'' + 

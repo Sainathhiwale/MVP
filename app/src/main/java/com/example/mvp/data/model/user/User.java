@@ -1,11 +1,9 @@
-package com.example.mvp.data.model;
+package com.example.mvp.data.model.user;
 
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
-import io.reactivex.Scheduler;
 
 public class User{
 

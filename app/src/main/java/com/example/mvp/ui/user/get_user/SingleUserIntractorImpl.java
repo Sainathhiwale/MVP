@@ -2,7 +2,7 @@ package com.example.mvp.ui.user.get_user;
 
 import android.content.Context;
 
-import com.example.mvp.data.model.SingleUsers;
+import com.example.mvp.data.model.user.SingleUsers;
 import com.example.mvp.data.network.AzureApiInterface;
 import com.example.mvp.data.network.RetrofitInstance;
 

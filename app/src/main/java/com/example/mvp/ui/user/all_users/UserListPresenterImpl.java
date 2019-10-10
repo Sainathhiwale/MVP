@@ -1,6 +1,6 @@
 package com.example.mvp.ui.user.all_users;
 
-import com.example.mvp.data.model.UserList;
+import com.example.mvp.data.model.user.UserList;
 
 import java.util.List;
 

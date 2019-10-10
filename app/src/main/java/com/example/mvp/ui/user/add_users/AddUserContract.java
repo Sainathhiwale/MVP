@@ -1,6 +1,6 @@
 package com.example.mvp.ui.user.add_users;
 
-import com.example.mvp.data.model.AddUser;
+import com.example.mvp.data.model.user.AddUser;
 
 public interface AddUserContract {
     interface AddUserView{

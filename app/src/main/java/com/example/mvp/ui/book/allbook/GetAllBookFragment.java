@@ -8,12 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvp.R;
+import com.example.mvp.data.model.book.BookInfoList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GetAllBookFragment extends Fragment {
-
+public class GetAllBookFragment extends Fragment implements AllBookContract.GetAllBookView {
 
     public GetAllBookFragment() {
         // Required empty public constructor
@@ -24,7 +24,27 @@ public class GetAllBookFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_get_all_book, container, false);
+        View view = inflater.inflate(R.layout.fragment_get_all_book, container, false);
+        return view;
     }
 
+    @Override
+    public void showProgress() {
+        
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void setAllBookInfoData(BookInfoList bookInfoData) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable throwable) {
+
+    }
 }
