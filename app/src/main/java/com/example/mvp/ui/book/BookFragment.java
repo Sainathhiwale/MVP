@@ -1,27 +1,26 @@
 package com.example.mvp.ui.book;
 
 
-import android.Manifest;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.example.mvp.R;
+import com.example.mvp.adapter.ViewPagerAdapter;
+import com.example.mvp.ui.book.addbook.AddBookFragment;
+import com.example.mvp.ui.book.allbook.GetAllBookFragment;
+import com.example.mvp.ui.book.deletebook.DeleteBookFragment;
+import com.example.mvp.ui.book.putbook.PutBookFragment;
+import com.example.mvp.ui.book.singlebook.SingleBookFragment;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +28,13 @@ import java.util.Map;
 public class BookFragment extends Fragment {
     private static final String TAG = "BookFragment";
 
-    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS =101;
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
+    @Bind(R.id.tab_layout_book)
+    TabLayout tabLayoutBook;
+    @Bind(R.id.viewpager_book)
+    ViewPager viewpagerBook;
+    @Bind(R.id.llBookLayout)
+    LinearLayout llBookLayout;
 
     public BookFragment() {
         // Required empty public constructor
@@ -41,12 +46,32 @@ public class BookFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_book, container, false);
-        initData();
-        checkAndRequestPermissions();
+        // checkAndRequestPermissions();
+        initView();
+        ButterKnife.bind(this, view);
         return view;
     }
 
-    private boolean checkAndRequestPermissions() {
+    private void initView() {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Book");
+        setupPager(viewpagerBook);
+    }
+
+    private void setupPager(ViewPager viewpagerBook) {
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
+        viewPagerAdapter.addFragment(new AddBookFragment(),"Add Book");
+        viewPagerAdapter.addFragment(new SingleBookFragment(),"Single Book");
+        viewPagerAdapter.addFragment(new GetAllBookFragment(),"All Book");
+        viewPagerAdapter.addFragment(new DeleteBookFragment(),"Delete Book");
+        viewPagerAdapter.addFragment(new PutBookFragment(),"Put Book");
+        viewpagerBook.setAdapter(viewPagerAdapter);
+    }
+
+
+}
+
+
+/* private boolean checkAndRequestPermissions() {
         int premissionSendMessage = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.SEND_SMS);
         int locationPremission = ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.ACCESS_FINE_LOCATION);
         List<String> listPermissionsNeeded = new ArrayList<>();
@@ -129,8 +154,4 @@ public class BookFragment extends Fragment {
                 .create()
                 .show();
     }
-
-    private void initData() {
-    }
-
-}
+*/

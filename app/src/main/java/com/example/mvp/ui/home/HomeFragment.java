@@ -2,7 +2,6 @@ package com.example.mvp.ui.home;
 
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,13 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.example.mvp.R;
-import com.example.mvp.ui.authers.authersList.AuthersFragment;
+import com.example.mvp.ui.authers.authersList.AuthersListFragment;
 import com.example.mvp.ui.book.BookFragment;
-import com.example.mvp.ui.user.UsersActivity;
-import com.example.mvp.ui.user.all_users.UserALLFragment;
+import com.example.mvp.ui.user.UsersFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -143,7 +140,7 @@ public class HomeFragment extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.llUser:
-                UserALLFragment userALLFragment = new UserALLFragment();
+                UsersFragment userALLFragment = new UsersFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.main_container,userALLFragment );
                 fragmentTransaction.commit();
@@ -158,7 +155,7 @@ public class HomeFragment extends Fragment {
 
                 break;
             case R.id.llAuthers:
-                AuthersFragment authersFragment = new AuthersFragment();
+                AuthersListFragment authersFragment = new AuthersListFragment();
                 FragmentTransaction fragmentTransaction2 = getFragmentManager().beginTransaction();
                 fragmentTransaction2.replace(R.id.main_container, authersFragment);
                 fragmentTransaction2.commit();

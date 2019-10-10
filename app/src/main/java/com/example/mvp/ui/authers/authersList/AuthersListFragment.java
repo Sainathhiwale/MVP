@@ -23,13 +23,13 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AuthersFragment extends Fragment implements AuthersContract.AuthersView {
+public class AuthersListFragment extends Fragment implements AuthersContract.AuthersView {
       @Bind(R.id.rvAuthList)
     RecyclerView rvAuthList;
    LinearLayoutManager linearLayoutManager;
    AuthersListPresenterImpl presenter;
    AuthersAdapter authersAdapter;
-    public AuthersFragment() {
+    public AuthersListFragment() {
         // Required empty public constructor
     }
 
@@ -38,7 +38,7 @@ public class AuthersFragment extends Fragment implements AuthersContract.Authers
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_authers, container, false);
+        View view = inflater.inflate(R.layout.fragment_authers_list, container, false);
         ButterKnife.bind(this,view);
         initData();
         return view;

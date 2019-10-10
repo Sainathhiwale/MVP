@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.mvp.ui.authers.add_authers.AddAutherFragment;
-import com.example.mvp.ui.authers.authersList.AuthersFragment;
+import com.example.mvp.ui.authers.authersList.AuthersListFragment;
 
 public class AutherPagerViewAdapter extends FragmentPagerAdapter {
     public AutherPagerViewAdapter(FragmentManager fm) {
@@ -16,7 +16,7 @@ public class AutherPagerViewAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                AuthersFragment  authersFragment = new AuthersFragment();
+                AuthersListFragment authersFragment = new AuthersListFragment();
                 return authersFragment;
             case 1:
                 AddAutherFragment addAutherFragment = new AddAutherFragment();
